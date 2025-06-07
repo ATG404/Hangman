@@ -56,7 +56,7 @@ export default function Body(){
 
     const letterElement = currentWord.split("").map((letter, index) => 
         { const shouldRevealLetter = isGameLost || guessedLetter.includes(letter)
-          const letterClassName = clsx(isGameLost && !guessedLetters.include(letter) && "missed-letters")
+          const letterClassName = clsx(isGameLost && !guessedLetter.include(letter) && "missed-letters")
         return(
         <span key={index} className={letterClassName}>
             {shouldRevealLetter ?
