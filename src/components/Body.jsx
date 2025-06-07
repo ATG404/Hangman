@@ -30,10 +30,8 @@ export default function Body(){
     )}
 
     function startNewGame(){
-        setGuessedLetter(prevLetter =>
-            prevLetter.includes(letter) ?
-            prevLetter : [prevLetter, letter]
-        )
+        setCurrentWord(randomWords())
+        setGuessedLetter([])
     }
 
     const languageElement= languages.map((lang, index) => {
@@ -56,7 +54,7 @@ export default function Body(){
 
     const letterElement = currentWord.split("").map((letter, index) => 
         { const shouldRevealLetter = isGameLost || guessedLetter.includes(letter)
-          const letterClassName = clsx(isGameLost && !guessedLetter.include(letter) && "missed-letters")
+          const letterClassName = clsx(isGameLost && !guessedLetter.includes(letter) && "missed-letters")
         return(
         <span key={index} className={letterClassName}>
             {shouldRevealLetter ?
